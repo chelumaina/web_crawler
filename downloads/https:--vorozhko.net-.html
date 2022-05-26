@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://vorozhko.net/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="https://vorozhko.net/wp-content/themes/twentyfifteen/js/html5.js?ver=3.7.0"></script>
+	<![endif]-->
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script>window.koko_analytics = {"tracker_url":"https:\/\/vorozhko.net\/koko-analytics-collect.php","post_id":0,"use_cookie":1,"cookie_path":"\/","honor_dnt":true};</script><script src="https://vorozhko.net/wp-content/plugins/koko-analytics/assets/dist/js/script.js?ver=1.0.26" async="async"></script><meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v16.1.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Site Reliability Engineer Blog - No downtime expected ©</title>
+	<meta name="description" content="No downtime expected ©" />
+	<link rel="canonical" href="https://vorozhko.net/" />
+	<link rel="next" href="https://vorozhko.net/page/2" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Site Reliability Engineer Blog - No downtime expected ©" />
+	<meta property="og:description" content="No downtime expected ©" />
+	<meta property="og:url" content="https://vorozhko.net/" />
+	<meta property="og:site_name" content="Site Reliability Engineer Blog" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@vorozhko" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://vorozhko.net/#website","url":"https://vorozhko.net/","name":"Site Reliability Engineer Blog","description":"No downtime expected \u00a9","potentialAction":[{"@type":"SearchAction","target":"https://vorozhko.net/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https://vorozhko.net/#webpage","url":"https://vorozhko.net/","name":"Site Reliability Engineer Blog - No downtime expected \u00a9","isPartOf":{"@id":"https://vorozhko.net/#website"},"description":"No downtime expected \u00a9","breadcrumb":{"@id":"https://vorozhko.net/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://vorozhko.net/"]}]},{"@type":"BreadcrumbList","@id":"https://vorozhko.net/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://vorozhko.net/","url":"https://vorozhko.net/","name":"Home"}}]}]}</script>
+	<meta name="google-site-verification" content="AznaFbzfCs_XOrmKVSNYtrPtFuF6tor4Oztr8EsNuuc" />
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//vorozhko.net' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Site Reliability Engineer Blog &raquo; Feed" href="https://vorozhko.net/feed" />
+<link rel="alternate" type="application/rss+xml" title="Site Reliability Engineer Blog &raquo; Comments Feed" href="https://vorozhko.net/comments/feed" />
+		<script>
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/vorozhko.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7.5"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://vorozhko.net/wp-includes/css/dist/block-library/style.min.css?ver=5.7.5' media='all' />
+<link rel='stylesheet' id='wp-block-library-theme-css'  href='https://vorozhko.net/wp-includes/css/dist/block-library/theme.min.css?ver=5.7.5' media='all' />
+<link rel='stylesheet' id='twentyfifteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&#038;subset=latin%2Clatin-ext&#038;display=fallback' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://vorozhko.net/wp-content/themes/twentyfifteen/genericons/genericons.css?ver=20201208' media='all' />
+<link rel='stylesheet' id='twentyfifteen-style-css'  href='https://vorozhko.net/wp-content/themes/twentyfifteen/style.css?ver=20201208' media='all' />
+<link rel='stylesheet' id='twentyfifteen-block-style-css'  href='https://vorozhko.net/wp-content/themes/twentyfifteen/css/blocks.css?ver=20190102' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='https://vorozhko.net/wp-content/themes/twentyfifteen/css/ie.css?ver=20170916' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='https://vorozhko.net/wp-content/themes/twentyfifteen/css/ie7.css?ver=20141210' media='all' />
+<![endif]-->
+<script src='https://vorozhko.net/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+<script src='https://vorozhko.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="https://vorozhko.net/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://vorozhko.net/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://vorozhko.net/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.7.5" />
+
+		<!-- GA Google Analytics @ https://m0n.co/ga -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1463270-11"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-1463270-11');
+		</script>
+
+	<link rel="preload" as="style" href="https://vorozhko.net/wp-content/plugins/code-prettify/prettify/prettify.css" /></head>
+
+<body class="home blog wp-embed-responsive">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<div id="sidebar" class="sidebar">
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-branding">
+										<h1 class="site-title"><a href="https://vorozhko.net/" rel="home">Site Reliability Engineer Blog</a></h1>
+											<p class="site-description">No downtime expected ©</p>
+										<button class="secondary-toggle">Menu and widgets</button>
+			</div><!-- .site-branding -->
+		</header><!-- .site-header -->
+
+			<div id="secondary" class="secondary">
+
+		
+		
+					<div id="widget-area" class="widget-area" role="complementary">
+				<aside id="text-3" class="widget widget_text"><h2 class="widget-title">Kubernetes / GCP / AWS</h2>			<div class="textwidget"><p><strong>Do you want to build first class Kubernetes platform?</strong></p>
+<p>Contact me through my Linked in <a href="https://linkedin.com/in/vorozhko/">profile</a>.</p>
+</div>
+		</aside><aside id="text-2" class="widget widget_text"><h2 class="widget-title">Profiles</h2>			<div class="textwidget"><ul>
+<li><a href="https://www.linkedin.com/in/vorozhko/" >Linkedin</a></li>
+<li><a href="https://github.com/vorozhko">GitHub</a></li>
+<li><a href="https://twitter.com/vorozhko">Twitter</a></li>
+</ul>
+</div>
+		</aside>			</div><!-- .widget-area -->
+		
+	</div><!-- .secondary -->
+
+	</div><!-- .sidebar -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+			
+<article id="post-465" class="post-465 post type-post status-publish format-standard hentry category-uncategorized">
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://vorozhko.net/certified-kubernetes-administrator" rel="bookmark">Certified Kubernetes Administrator</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<figure class="wp-block-image size-large"><a href="https://vorozhko.net/wp-content/uploads/2021/04/CKA-results.png"><img loading="lazy" width="1024" height="791" src="https://vorozhko.net/wp-content/uploads/2021/04/CKA-results-1024x791.png" alt="" class="wp-image-466" srcset="https://vorozhko.net/wp-content/uploads/2021/04/CKA-results-1024x791.png 1024w, https://vorozhko.net/wp-content/uploads/2021/04/CKA-results-300x232.png 300w, https://vorozhko.net/wp-content/uploads/2021/04/CKA-results-768x593.png 768w, https://vorozhko.net/wp-content/uploads/2021/04/CKA-results-1536x1186.png 1536w, https://vorozhko.net/wp-content/uploads/2021/04/CKA-results-2048x1582.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></a></figure>
+
+
+
+<p></p>
+
+
+
+<p>The CKA exam was a real challenge and great experience over all. </p>
+
+
+
+<p>My first impression now I am officially part of Kubernetes world and CNCF.</p>
+
+
+
+<p>But, I just love Kubernetes and it&#8217;s eco-system of open source projects and I had a lot of fun during my preparation and CKA exam. When you combine work with fun you can achieve really great results.</p>
+
+
+
+<p>My advise for all future CKA participants is to have 80% of real Kubernetes practice  and other 20% you can learn along the exam year.</p>
+
+
+
+<p>From a practical aspect I have used Minikube to tackle with Deployments and other Kuberentes API related tasks. As for cluster administration experience I mostly used Vagrant boxes and Google Cloud VMs to get multi nodes setup and network capabilities. </p>
+
+
+
+<p>My last advice is to build your Kubernetes knowledge like a layered system. Start with foundation and build it block by block. Finish it with production ready Kubernetes cluster and your exam will become an easy walk in the park. </p>
+
+
+
+<p>Have fun!</p>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://vorozhko.net/certified-kubernetes-administrator" rel="bookmark"><time class="entry-date published" datetime="2021-04-17T14:21:08+01:00">April 17, 2021</time><time class="updated" datetime="2021-04-17T14:23:00+01:00">April 17, 2021</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://vorozhko.net/category/uncategorized" rel="category tag">Uncategorized</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-465 -->
+
+<article id="post-456" class="post-456 post type-post status-publish format-standard has-post-thumbnail hentry category-kubernetes category-sre tag-istio tag-kubernetes tag-red-method tag-sre">
+	
+	<a class="post-thumbnail" href="https://vorozhko.net/implementing-red-method-with-istio" aria-hidden="true">
+		<img width="490" height="462" src="https://vorozhko.net/wp-content/uploads/2020/07/istio-logo.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Implementing RED method with Istio" loading="lazy" srcset="https://vorozhko.net/wp-content/uploads/2020/07/istio-logo.png 490w, https://vorozhko.net/wp-content/uploads/2020/07/istio-logo-300x283.png 300w" sizes="(max-width: 490px) 100vw, 490px" />	</a>
+
+		
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://vorozhko.net/implementing-red-method-with-istio" rel="bookmark">Implementing RED method with Istio</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<p>In this article I describe how to quickly get started with SLO and SLI practice using Istio. if you are new SLO and SLI read a <a href="https://vorozhko.net/brief-summary-of-site-reliability-engineering-best-practices">Brief Summary of SRE best practices</a>.</p>
+
+
+
+<h2>RED or Rate Errors Duration</h2>
+
+
+
+<p>The RED method is an easy to understand monitoring methodology. For every service, monitor:</p>
+
+
+
+<p><strong>Rate</strong> &#8211; how many operations per second is placed on a service<br><strong>Errors</strong> &#8211; what percentage of the traffic return in error state<br><strong>Duration</strong> &#8211; the time it take to serve a request or process a job</p>
+
+
+
+<p>Rate, Errors, Duration are a good Service Level Indicators to start, because undesirable change in any of it directly impact your users.<br>Examples of Service Level Objectives for RED indicators:</p>
+
+
+
+<ul><li>Number of <strong>Requests</strong> are above 1000 operations per minute or Number of Requests don&#8217;t drop more than on 10% for 10 minutes period</li><li><strong>Errors</strong> rate are below 0.5%</li><li>Request <strong>Latency</strong> for 99% of operations are less than 100ms</li></ul>
+
+
+
+<p>For a microservices platform, RED is a perfect metrics to start with. But how to collect and visualize them for a big number of services?</p>
+
+
+
+<p>Enter Istio.</p>
+
+
+
+<h2>Deploying Kubernetes, Istio and demo Apps</h2>
+
+
+
+<h3>Tools for a demo</h3>
+
+
+
+<ul><li><a href="https://minikube.sigs.k8s.io/docs/">minikube</a> &#8211; local Kubernetes cluster to test our setup (optional if you have a demo cluster)</li><li><a href="https://skaffold.dev/">skaffold</a> &#8211; an application for building and deploying demo microservices</li><li><a href="https://istio.io/latest/docs/setup/install/istioctl/">istioctl</a> &#8211; istio command line tool</li><li><a href="https://github.com/GoogleCloudPlatform/microservices-demo"><strong>Online Boutique</strong></a> &#8211; a cloud-native microservices demo application</li></ul>
+
+
+
+<h3>Kubernetes and Istio</h3>
+
+
+
+<p>For our demo we would need following cluster specs with default Istio setup. </p>
+
+
+
+<pre class="wp-block-code"><code>minikube start --cpus=4 --memory 4096 --disk-size 32g
+curl -L https://istio.io/downloadIstio | sh -
+cd istio-1.6.4
+bin/istioctl install --set profile=demo
+kubectl label namespace default istio-injection=enabled</code></pre>
+
+
+
+<h3>Demo applications</h3>
+
+
+
+<p>For test applications I am using <a href="https://github.com/GoogleCloudPlatform/microservices-demo"><strong>Online Boutique</strong></a> which is cloud native microservices demo from Google Cloud Platform team.</p>
+
+
+
+<pre class="wp-block-code"><code>git clone https://github.com/GoogleCloudPlatform/microservices-demo.git
+cd microservices-demo
+skaffold run # this will build and deploy applications. take about 20 minutes</code></pre>
+
+
+
+<p>Verify that applications are installed:</p>
+
+
+
+<pre class="wp-block-code"><code>kubectl get pods
+NAME                                     READY   STATUS    RESTARTS   AGE
+adservice-85cb97f6c8-fkbf2               2/2     Running   0          96s
+cartservice-6f955b89f4-tb6vg             2/2     Running   2          96s
+checkoutservice-5856dcfdd5-s7phn         2/2     Running   0          96s
+currencyservice-9c888cdbc-4lxhs          2/2     Running   0          96s
+emailservice-6bb8bbc6f7-m5ldg            2/2     Running   0          96s
+frontend-68646cffc4-n4jqj                2/2     Running   0          96s
+loadgenerator-5f86f94b89-xc7hf           2/2     Running   3          95s
+paymentservice-56ddc9454b-lrpsm          2/2     Running   0          95s
+productcatalogservice-5dd6f89b89-bmnr4   2/2     Running   0          95s
+recommendationservice-868bc84d65-cgj2j   2/2     Running   0          95s
+redis-cart-b55b4cf66-t29mk               2/2     Running   0          95s
+shippingservice-cd4c57b99-r8bl7          2/2     Running   0          95s</code></pre>
+
+
+
+<p>Notice 2/2 Ready containers. One of the container is Istio sidecar proxy which will do all the job for collecting RED metrics.</p>
+
+
+
+<h2>RED metrics Visualization</h2>
+
+
+
+<p>Setup a proxy to Grafana dashboard</p>
+
+
+
+<pre class="wp-block-code"><code>kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=grafana -o jsonpath='{.items&#91;0].metadata.name}') 3000:3000 &amp;</code></pre>
+
+
+
+<p>Open <a href="http://localhost:3000/d/LJ_uJAvmk/istio-service-dashboard?orgId=1&amp;var-service=productcatalogservice.default.svc.cluster.local&amp;var-srcns=All&amp;var-srcwl=All&amp;var-dstns=All&amp;var-dstwl=All">Grafana Istio Service Mesh</a> dashboard for a global look at RED metrics</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="1024" height="516" src="https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-34-26-1024x516.png" alt="" class="wp-image-457" srcset="https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-34-26-1024x516.png 1024w, https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-34-26-300x151.png 300w, https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-34-26-768x387.png 768w, https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-34-26-1536x773.png 1536w, https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-34-26-2048x1031.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Detailed board for any service with RED metrics looks like:</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="1024" height="361" src="https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-27-21-1024x361.png" alt="" class="wp-image-458" srcset="https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-27-21-1024x361.png 1024w, https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-27-21-300x106.png 300w, https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-27-21-768x271.png 768w, https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-27-21-1536x541.png 1536w, https://vorozhko.net/wp-content/uploads/2020/07/Screenshot-from-2020-07-07-18-27-21-2048x721.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Conclusions</h2>
+
+
+
+<p>Istio provide Rate, Errors and Duration metrics out of the box which is a big leap toward SLO and SLI practice for all services.</p>
+
+
+
+<p>Incorporating Istio in your platform is a big toward observability, security and control of your service mesh.</p>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://vorozhko.net/implementing-red-method-with-istio" rel="bookmark"><time class="entry-date published" datetime="2020-07-08T10:20:02+01:00">July 8, 2020</time><time class="updated" datetime="2020-10-23T08:42:00+01:00">October 23, 2020</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://vorozhko.net/category/kubernetes" rel="category tag">Kubernetes</a>, <a href="https://vorozhko.net/category/sre" rel="category tag">SRE</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://vorozhko.net/tag/istio" rel="tag">Istio</a>, <a href="https://vorozhko.net/tag/kubernetes" rel="tag">Kubernetes</a>, <a href="https://vorozhko.net/tag/red-method" rel="tag">RED method</a>, <a href="https://vorozhko.net/tag/sre" rel="tag">SRE</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-456 -->
+
+<article id="post-443" class="post-443 post type-post status-publish format-standard has-post-thumbnail hentry category-devops category-monitoring category-sre tag-best-practices tag-devops tag-sre">
+	
+	<a class="post-thumbnail" href="https://vorozhko.net/brief-summary-of-site-reliability-engineering-best-practices" aria-hidden="true">
+		<img width="825" height="510" src="https://vorozhko.net/wp-content/uploads/2020/06/DevOps_google-825x510.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Brief Summary of Site Reliability Engineering best practices" loading="lazy" />	</a>
+
+		
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://vorozhko.net/brief-summary-of-site-reliability-engineering-best-practices" rel="bookmark">Brief Summary of Site Reliability Engineering best practices</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<blockquote class="wp-block-quote is-style-large"><p>The goal of SRE is to accelerate product development teams and keep services running in reliable and continuous way.</p></blockquote>
+
+
+
+<p>This article is a collection practical notes on explaining what is SRE, what kind of work SREs does and what type of processes they develop. The practices are based on Google SRE workbook. </p>
+
+
+
+<p>This is a long article and If you will make it to the end I applaud to you! </p>
+
+
+
+<p>But, don&#8217;t stop here, go and read both Google SRE books which mentioned in References. Then learn about Prometheus and ELK stacks &#8211; they are open source tools that help to implement SRE practices. <br>That should keep your busy for at least a year.  I wish you best of luck!</p>
+
+
+
+<h2>SRE practices include</h2>
+
+
+
+<ul><li>SLOs and SLIs</li><li>Monitoring</li><li>Alerting</li><li>Toil reduction</li><li>Simplicity</li></ul>
+
+
+
+<h2>SLO and SLI</h2>
+
+
+
+<p><strong>SLO</strong> is Service Level Objective is a goal that service provider wants to reach.</p>
+
+
+
+<p><strong>Practicality of SLO</strong>:  SLOs are tools to help determine what engineering work to prioritize. SLOs define the concept of error budget. </p>
+
+
+
+<p>Talking about error budget, lets see next how error budget have to be approached.</p>
+
+
+
+<p><strong>Error budget approach</strong></p>
+
+
+
+<ul><li>There are SLOs which all stakeholder in org. approved</li><li>It is possible to meet SLOs needs under normal conditions</li><li>Org. is committed to using error budget for decision making and prioritizing</li></ul>
+
+
+
+<p>This are essentials steps to have error budget approach in place, your work is to go as close as possible to fulfill them. </p>
+
+
+
+<p><strong>What to measure using SLIs</strong></p>
+
+
+
+<p><strong>SLIs</strong> is the ration between two numbers: the good and the total:</p>
+
+
+
+<ul><li>Number of successful HTTP request / total HTTP requests</li><li>Number of consumed jobs in a queue / total number of jobs in a queue</li></ul>
+
+
+
+<p><strong>SLI</strong> divided on specification and implementation. For example:</p>
+
+
+
+<ul><li>Specification: ration of requests loaded in &lt; 100 ms</li><li>Implementation based on: a) server logs b) Javascript on client</li></ul>
+
+
+
+<h3>SLO and SLI in practice</h3>
+
+
+
+<p>The strategy to implement SLO, SLI in your company is to start small. Consider following aspects when working on your first SLO.</p>
+
+
+
+<ul><li>Choose one application for which you want to define SLOs</li><li>Decide on few keys SLIs specs that matter to your service and users</li><li>Consider common ways and tasks through which your users interact with service</li><li>Draw a high-level architecture diagram of your system</li><li>Show key components. The requests flow. The data flow</li></ul>
+
+
+
+<p>The result is narrow and focused prove of concept that would help to make benefits of SLO, SLI concise and clear. </p>
+
+
+
+<p><strong>Type of SLIs</strong></p>
+
+
+
+<p><strong>SLI</strong> is Service Level Indicator is a measurement the service provider uses for the SLO goal. </p>
+
+
+
+<p>There are several types of measurement you might choose from depend on type of your service:</p>
+
+
+
+<ul><li>Availability  &#8211; The proportion of request which result in successful state</li><li>Latency  &#8211; The proportion of request below some time threshold</li><li>Freshness &#8211; The proportion of data transferred to some time threshold. Replication or Data pipeline</li><li>Correctness &#8211; The proportion of input that produce correct output</li><li>Durability &#8211; The proportion of records written that can be successfully read</li></ul>
+
+
+
+<p><strong>Summary of first actions toward SLOs and SLIs</strong></p>
+
+
+
+<ul><li>Setup white box monitoring: prometheus, datadog, newrelic</li><li>Develop key SLOs and SLOs response process like incident management</li><li>Error budget enforcement decisions. Written error budget policy. Priority to reliability when error budget is spent.</li><li>Continuous improvement of SLOs target. Monthly SLOs review.</li><li>Count outages and measure user happiness</li><li>Create a training program to train developers on SLOs and other reliability concepts</li><li>Create SLOs dashboard</li></ul>
+
+
+
+<p>This is essential starting points to implement SLOs in your company. It will bring more confidence and better decision making in your services. </p>
+
+
+
+<h2>Monitoring</h2>
+
+
+
+<p><strong>How SRE define monitoring</strong></p>
+
+
+
+<ul><li>Alert on condition that require attention</li><li>Investigate and diagnose issues</li><li>Display information about the system visually</li><li>Gain insight into system health and resource usage for long-term planning</li><li>Compare the behavior of the system before and after a change, or between two control groups</li></ul>
+
+
+
+<p><strong>Features of monitoring you have to know and tune</strong></p>
+
+
+
+<ul><li>Speed. Freshness of data.</li><li>Data retention and calculations</li><li>Interfaces: graphs, tables, charts. High level or low level.</li><li>Alerts: multiple categories, notifications flow, suppress functionality.</li></ul>
+
+
+
+<p><strong>Source of monitoring</strong></p>
+
+
+
+<ul><li>Metrics</li><li>Logs</li></ul>
+
+
+
+<p>That is high level overview. Details depend on your tools and platform. For the ones who are only starting I recommend to look for open source projects such as Prometheus, Grafana and ElasticSearch(ELK) monitoring stack.</p>
+
+
+
+<h2>Alerting</h2>
+
+
+
+<p><strong>Alerting considerations</strong></p>
+
+
+
+<ul><li>Precision &#8211; The proportion of events detected that were significant</li><li>Recall &#8211; The proportion of significant events detected</li><li>Detection time &#8211; How long it takes to send notification in various conditions</li><li>Reset time &#8211; How long alerts fire after an issue is resolved</li></ul>
+
+
+
+<p><strong>Ways to alerts</strong></p>
+
+
+
+<p>There are several strategies on how alerts could be setup. Recommendation is to combine several strategies to enhance your alerts quality from different directions.</p>
+
+
+
+<p>First and simple one: </p>
+
+
+
+<ul><li><strong>Target error rate ≥ SLO threshold.</strong><ul><li>Example: For 10 minutes window error rate exceeds the SLO</li><li>Upsides: Fast recall time</li><li>Downsides: Precision is low</li></ul></li><li><strong>Increased alert windows. </strong><ul><li>Example: if an event consumes 5% of the 30-day error budget &#8211; a 36-hour window. </li><li>Upsides: good detection time</li><li>Downside: poor reset time</li></ul></li><li><strong>Increment alert duration.</strong> For how long alert should be triggered to be significant. <ul><li>Upsides: Alerts can be higher precision.</li></ul><ul><li>Downside: poor recall and poor detection time</li></ul></li><li><strong>Alert on burn rate.</strong> How fast, relative to SLO, the service consume error budget.<ul><li>Example: 5% error budget over 1 hour period. </li><li>Upside: Good precision, short time window, good detection time. </li><li>Downside: low recall, long reset time</li></ul></li><li><strong>Multiple burn rate alerts.</strong> Depend on burn rate determine severity of alert which lead to page notification or a ticket<ul><li>Upsides: good recall, good precision</li><li>Downsides: More parameters to manage, long reset time</li></ul></li><li><strong>Multi window, multi burn alerts. </strong><ul><li>Upsides: Flexible alert framework, good precision, good recall</li><li>Downside: even more harder to manage, lots of parameters to specify</li></ul></li></ul>
+
+
+
+<p>The same as for Monitoring an open source tool to be alert on metrics is combination of Prometheus and Alertmanager. As for logs look for Kibana project which has Alerting on log patterns.</p>
+
+
+
+<h2>Toil reduction</h2>
+
+
+
+<p><strong>Definition</strong>: toils is repetitive, predictable, constant stream of tasks related to maintaining a service</p>
+
+
+
+<p><strong>What is toil</strong></p>
+
+
+
+<ul><li><strong>Manual</strong>. When the tmp directory on a web server reach 95% utilization, you need to login and find a space to clean up</li><li><strong>Repetitive</strong>. A full tmp director is unlikely to be a one time event</li><li><strong>Automatable</strong>. If the instructions are well defined then it&#8217;s better to automate the problem detection and remediation</li><li><strong>Reactive</strong>. When you receive too many alerts of &#8220;disks full&#8221;, they distract more than help. So, potentially high-severity alerts could be missed</li><li><strong>Lacks enduring value</strong>. The satisfaction of completed tasks is short term, because it is to prevent the issue in the future</li><li><strong>Grow at least as fast as it&#8217;s source</strong>. Growing popularity of the service will require more infrastructure and more toil work</li></ul>
+
+
+
+<p><strong>Potential benefits of toil automation</strong></p>
+
+
+
+<ul><li>Engineering work might reduce toil in the future</li><li>Increased team morale</li><li>Less context switching for interrupts, which raises team productivity</li><li>Increased process clarity and standardization</li><li>Enhanced technical skills</li><li>Reduced training time</li><li>Fewer outages attributable to human errors</li><li>Improved security</li><li>Shorter response times for user requests</li></ul>
+
+
+
+<p><strong>How to measure toil</strong></p>
+
+
+
+<ul><li>Identify it.</li><li>Measure the amount of human effort applied to this toil</li><li>Track these measurements before, during and after toil reduction efforts</li></ul>
+
+
+
+<p><strong>Toil categorization</strong></p>
+
+
+
+<ul><li>Business processes. Most common source of toil.</li><li>Production interrupts. The key tasks to keep system running.</li><li>Product releases. Depending on the tooling and release size they could generate toil.(release requests, rollbacks, hot fixes and repetitive manual configuration changes)</li><li>Migrations. Large scale migration or even small database structure change likely done manually as one time effort. Such thinking is a mistake, because this work is repetitive.</li><li>Cost engineering and capacity planning. Ensure a cost-effective baseline. Prepare for critical high traffic events.</li><li>Troubleshooting</li></ul>
+
+
+
+<h3>Toil management strategies in practices</h3>
+
+
+
+<p>Basics:</p>
+
+
+
+<ul><li>Identify and measure</li><li>Engineer toil out of the system</li><li>Reject the toil</li><li>Use SLO to reduce toil</li></ul>
+
+
+
+<p>Organizational:</p>
+
+
+
+<ul><li>Start with human-backed interfaces. For complex business problems start with partially automated approach.</li><li>Get support from management and colleagues. Toil reduction is worthwhile goal.</li><li>Promote toil reduction as a feature. Create strong business case for toil reduction.</li><li>Start small and then improve</li></ul>
+
+
+
+<p>Standardization and automation:</p>
+
+
+
+<ul><li>Increase uniformity. Lean to standard tools, equipment and processes.</li><li>Access risk within automation. Automation with admin-level privileges should have safety mechanism which checks automation actions against the system. It will prevent outages caused by bugs in automation tools.</li><li>Automate toil response. Think how to approach toil automation. It shouldn&#8217;t eliminate human understanding of what&#8217;s going on.</li><li>Use open source and third-party tools.</li></ul>
+
+
+
+<p>In general:</p>
+
+
+
+<ul><li>Use feedback to improve. Seek for feedback from users who interact with your tools, workflows and automation.</li></ul>
+
+
+
+<h2>Simplicity</h2>
+
+
+
+<p><strong>Measure complexity</strong></p>
+
+
+
+<ul><li>Training time. How long it take for newcomer engineer to get on full speed.</li><li>Explanation time. The time it takes to provide a view on system internals.</li><li>Administrative diversity. How many ways are there to configure similar settings</li><li>Diversity of deployed configuration</li><li>Age. How old is the system</li></ul>
+
+
+
+<p><strong>SRE work on simplicity</strong></p>
+
+
+
+<ul><li><strong>SRE understand the systems end  </strong>to prevent and fix source of complexity</li><li><strong>SRE should be involved in design</strong>, system architecture, configuration, deployment processes, or elsewhere.</li><li><strong>SRE leadership empower SRE teams to push for simplicity</strong>, and to explicitly reward these efforts.</li></ul>
+
+
+
+<h2>Conclusions</h2>
+
+
+
+<ul><li>SRE practices require significant amount of time and skilled SRE people to implement right</li><li>A lot of tools are involved in day to day SRE work</li><li>SRE processes is one of a key to success of tech company</li></ul>
+
+
+
+<h2>References</h2>
+
+
+
+<ul><li>Google SRE <a href="https://landing.google.com/sre/workbook/toc/">Workbook</a></li><li>Google <a href="https://landing.google.com/sre/sre-book/toc/index.html">SRE</a> book</li></ul>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://vorozhko.net/brief-summary-of-site-reliability-engineering-best-practices" rel="bookmark"><time class="entry-date published" datetime="2020-06-26T13:31:40+01:00">June 26, 2020</time><time class="updated" datetime="2020-10-23T08:42:00+01:00">October 23, 2020</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://vorozhko.net/category/devops" rel="category tag">Devops</a>, <a href="https://vorozhko.net/category/devops/monitoring" rel="category tag">Monitoring</a>, <a href="https://vorozhko.net/category/sre" rel="category tag">SRE</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://vorozhko.net/tag/best-practices" rel="tag">best practices</a>, <a href="https://vorozhko.net/tag/devops" rel="tag">Devops</a>, <a href="https://vorozhko.net/tag/sre" rel="tag">SRE</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-443 -->
+
+<article id="post-435" class="post-435 post type-post status-publish format-standard hentry category-programming category-python tag-lru-cache tag-ordereddict tag-programming tag-python">
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://vorozhko.net/simple-lru-cache-implementation-on-python-3" rel="bookmark">Simple LRU cache implementation on Python 3</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<h2>What is LRU Cache?</h2>
+
+
+
+<p>This is caching item replacement policy, so the least used items will be discarded first.</p>
+
+
+
+<h2>Problem </h2>
+
+
+
+<p>The LRU Cache algorithm requires keeping track of what was used when, which is expensive if one wants to make sure the algorithm always discards the least recently used item.</p>
+
+
+
+<h2>Solution</h2>
+
+
+
+<p>Approaching a problem I was thinking of two capabilities for data structures: a FIFO queue and Hash table. </p>
+
+
+
+<p><strong>FIFO queue</strong> will be responsible to evict least used items.  <strong>Hash table</strong> will be responsible to get cached items. Using this data structures make both operations in O(1) time complexity.</p>
+
+
+
+<p>Python collections.OrderedDict combine both of this capabilities:</p>
+
+
+
+<ul><li>Queue: dict items are ordered as FIFO queue, so inserts and evictions are done in O(1)</li><li>Hash table: dict keys provide access to data in O(1) time</li></ul>
+
+
+
+<pre class="wp-block-code"><code>import collections
+LRUCache = collections.OrderedDict()</code></pre>
+
+
+
+<p>Insert operation:</p>
+
+
+
+<pre class="wp-block-code"><code>LRUCache&#91;key] = value</code></pre>
+
+
+
+<p>It will add a key to the end of the dict, so position of new items is always fixed.</p>
+
+
+
+<p>Check for hit:</p>
+
+
+
+<pre class="wp-block-code"><code>if key in LRUCache:
+  LRUCache.move_to_end(key)</code></pre>
+
+
+
+<p>Here we are doing two things: 1) Checking if key exist 2)If key is exist we move they key to the end of dict, so the keys which got a hit always update it&#8217;s position to become like newest key.</p>
+
+
+
+<p>Discard or evict operation:</p>
+
+
+
+<pre class="wp-block-code"><code>if len(LRUCache) > CACHE_SIZE:
+  evict_key, evict_val = LRUCache.popitem(last=False)</code></pre>
+
+
+
+<p>Evict operation pop item from the beginning of the dict, so removing the oldest key in the dict.</p>
+
+
+
+<h2>Python 3 implementation</h2>
+
+
+
+<pre class="wp-block-code"><code>"""Simple LRUCache implementation."""
+
+import collections
+import os
+import random
+from math import factorial
+
+CACHE_SIZE = 100
+if os.getenv('CACHE_SIZE'):
+    CACHE_SIZE = int(os.getenv('CACHE_SIZE'))
+
+SAMPLE_SIZE = 100
+if os.getenv('SAMPLE_SIZE'):
+    SAMPLE_SIZE = int(os.getenv('SAMPLE_SIZE'))
+
+LRUCache = collections.OrderedDict()
+
+
+def expensive_call(number):
+    """Calculate factorial. Example of expensive call."""
+    return factorial(number)
+
+
+if __name__ == '__main__':
+
+    test_cases = random.choices(
+        &#91;x for x in range(SAMPLE_SIZE*3)],
+        &#91;x for x in range(SAMPLE_SIZE*3)],
+        k=SAMPLE_SIZE
+    )
+
+    for test in test_cases:
+        if test in LRUCache:
+            print("hit:", test, LRUCache&#91;test])
+            # Update position of the hit item to first. Optional.
+            LRUCache.move_to_end(test, last=True)
+        else:
+            LRUCache&#91;test] = expensive_call(test)
+            print("miss:", test, LRUCache&#91;test])
+        if len(LRUCache) > CACHE_SIZE:
+            evict_key, evict_val = LRUCache.popitem(last=False)
+            print("evict:", evict_key, evict_val)
+</code></pre>
+
+
+
+<p>As a use case I have used LRU cache to cache the output of expensive function call like factorial.</p>
+
+
+
+<p>Sample size and Cache size are controllable through environment variables. Try to run it on small numbers to see how it behave:</p>
+
+
+
+<pre class="wp-block-code"><code>CACHE_SIZE=4 SAMPLE_SIZE=10 python lru.py</code></pre>
+
+
+
+<h2>Next steps are</h2>
+
+
+
+<ul><li>Encapsulate business logic into class</li><li>Add Python magic functions to provide Pythonic way of dealing with class objects</li><li>Add unit test</li></ul>
+
+
+
+<h2>References</h2>
+
+
+
+<ul><li>Code is also available on <a href="https://github.com/vorozhko/simple-lru-cache-on-python">GitHub</a></li><li>Python <a href="https://docs.python.org/3/library/collections.html#collections.OrderedDict">collections.OrderedDict</a></li><li>More advanced implementation is <a href="https://github.com/jlhutch/pylru">pylru</a> on GitHub</li></ul>
+
+
+
+<p></p>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://vorozhko.net/simple-lru-cache-implementation-on-python-3" rel="bookmark"><time class="entry-date published" datetime="2020-06-24T16:22:21+01:00">June 24, 2020</time><time class="updated" datetime="2020-10-23T08:42:00+01:00">October 23, 2020</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://vorozhko.net/category/programming" rel="category tag">Programming</a>, <a href="https://vorozhko.net/category/programming/python" rel="category tag">Python</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://vorozhko.net/tag/lru-cache" rel="tag">LRU cache</a>, <a href="https://vorozhko.net/tag/ordereddict" rel="tag">OrderedDict</a>, <a href="https://vorozhko.net/tag/programming" rel="tag">Programming</a>, <a href="https://vorozhko.net/tag/python" rel="tag">Python</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-435 -->
+
+<article id="post-431" class="post-431 post type-post status-publish format-standard has-post-thumbnail hentry category-kubernetes category-monitoring tag-elasticsearch tag-filebeat tag-kubernetes tag-monitoring">
+	
+	<a class="post-thumbnail" href="https://vorozhko.net/filebeats-configuration-for-kubernetes" aria-hidden="true">
+		<img width="384" height="304" src="https://vorozhko.net/wp-content/uploads/2020/06/no-free-elk-stack.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Filebeats configuration for Kubernetes" loading="lazy" srcset="https://vorozhko.net/wp-content/uploads/2020/06/no-free-elk-stack.png 384w, https://vorozhko.net/wp-content/uploads/2020/06/no-free-elk-stack-300x238.png 300w" sizes="(max-width: 384px) 100vw, 384px" />	</a>
+
+		
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://vorozhko.net/filebeats-configuration-for-kubernetes" rel="bookmark">Filebeats configuration for Kubernetes</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<pre class="wp-block-code"><code>filebeat.autodiscover:
+  providers:
+  - type: kubernetes
+    node: ${NODE_NAME}
+    hints.enabled: true
+    hints.default_config:
+      type: container
+      paths:
+        - /var/log/containers/*${data.kubernetes.container.id}.log</code></pre>
+
+
+
+<h2>What&#8217;s so cool about above configuration</h2>
+
+
+
+<h3>Filebeat Autodiscover</h3>
+
+
+
+<p>When you run applications on containers, they become moving targets to the monitoring system. Autodiscover allows you to track them and adapt settings as changes happen.</p>
+
+
+
+<p>The <strong>Kubernetes autodiscover</strong> provider watches for Kubernetes nodes, pods, services to start, update, and stop.<br>As well it recognise a lot of additional labels and statuses related to Kubernetes objects.</p>
+
+
+
+<h3>Hints based autodiscover</h3>
+
+
+
+<p>Filebeat supports autodiscover based on hints from the provider. The hints system looks for hints in Kubernetes Pod annotations or Docker labels that have the prefix <code>co.elastic.logs</code>. As soon as the container starts, Filebeat will check if it contains any hints and launch the proper config for it. Hints tell Filebeat how to get logs for the given container.</p>
+
+
+
+<h3>Type Container</h3>
+
+
+
+<p>Use the <code>container</code> input to read containers log files.</p>
+
+
+
+<p>This input searches for container logs under the given path, and parse them into common message lines, extracting timestamps too. Everything happens before line filtering, multiline, and <strong>JSON decoding</strong>, so this input can be used in combination with those settings.</p>
+
+
+
+<h2>Conclusions</h2>
+
+
+
+<p>Kubernetes logs autodiscovery and JSON decoding provide very good visibility into log stream. Labels and JSON log fields are properly named and parsed. Using ES and Kibana we can search through logs with easy queries and filter by fields.</p>
+
+
+
+<h2>References</h2>
+
+
+
+<ul><li><a href="https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html#_kubernetes">Kubernetes autodiscover provider</a></li></ul>
+
+
+
+<p></p>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://vorozhko.net/filebeats-configuration-for-kubernetes" rel="bookmark"><time class="entry-date published" datetime="2020-06-08T15:30:46+01:00">June 8, 2020</time><time class="updated" datetime="2020-10-23T08:42:01+01:00">October 23, 2020</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://vorozhko.net/category/kubernetes" rel="category tag">Kubernetes</a>, <a href="https://vorozhko.net/category/devops/monitoring" rel="category tag">Monitoring</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://vorozhko.net/tag/elasticsearch" rel="tag">ElasticSearch</a>, <a href="https://vorozhko.net/tag/filebeat" rel="tag">Filebeat</a>, <a href="https://vorozhko.net/tag/kubernetes" rel="tag">Kubernetes</a>, <a href="https://vorozhko.net/tag/monitoring" rel="tag">Monitoring</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-431 -->
+
+<article id="post-424" class="post-424 post type-post status-publish format-standard has-post-thumbnail hentry category-kubernetes category-monitoring category-programming tag-kubernetes tag-monitoring tag-sre">
+	
+	<a class="post-thumbnail" href="https://vorozhko.net/integrating-flask-with-jaeger-tracing-on-kuberentes" aria-hidden="true">
+		<img width="400" height="245" src="https://vorozhko.net/wp-content/uploads/2020/06/jaeger_logo.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Integrating Flask with Jaeger tracing on Kuberentes" loading="lazy" srcset="https://vorozhko.net/wp-content/uploads/2020/06/jaeger_logo.png 400w, https://vorozhko.net/wp-content/uploads/2020/06/jaeger_logo-300x184.png 300w" sizes="(max-width: 400px) 100vw, 400px" />	</a>
+
+		
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://vorozhko.net/integrating-flask-with-jaeger-tracing-on-kuberentes" rel="bookmark">Integrating Flask with Jaeger tracing on Kuberentes</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<p>Distributed applications and microservices required high level of observability. In this article we will integrate a Flask micro framework with Jaeger tracing tool. All code will be deployed to Kubernetes minikube cluster.</p>
+
+
+
+<h2>Flask</h2>
+
+
+
+<p>Let&#8217;s build a simple task manager service using Flask framework.</p>
+
+
+
+<h3>Code</h3>
+
+
+
+<p>tasks.py</p>
+
+
+
+<pre class="wp-block-code"><code>from flask import Flask, jsonify
+app = Flask(__name__)
+
+@app.route('/')
+
+tasks = {"tasks":&#91;
+        {"name":"task 1", "uri":"/task1"},
+        {"name":"task 2", "uri":"/task2"}
+    ]}
+
+def  root():
+	"Service root"
+	return  jsonify({"url":"/tasks")
+                     
+@app.route('/tasks')
+def  tasks():
+	"Tasks list"
+	return  jsonify(tasks)
+
+if __name__ == '__main__':
+  "Start up"
+  app.run(debug=True, host='0.0.0.0',port=5000)</code></pre>
+
+
+
+ <a href="https://vorozhko.net/integrating-flask-with-jaeger-tracing-on-kuberentes#more-424" class="more-link">Continue reading <span class="screen-reader-text">Integrating Flask with Jaeger tracing on Kuberentes</span></a>	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://vorozhko.net/integrating-flask-with-jaeger-tracing-on-kuberentes" rel="bookmark"><time class="entry-date published" datetime="2020-06-06T09:40:00+01:00">June 6, 2020</time><time class="updated" datetime="2020-10-23T08:42:01+01:00">October 23, 2020</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://vorozhko.net/category/kubernetes" rel="category tag">Kubernetes</a>, <a href="https://vorozhko.net/category/devops/monitoring" rel="category tag">Monitoring</a>, <a href="https://vorozhko.net/category/programming" rel="category tag">Programming</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://vorozhko.net/tag/kubernetes" rel="tag">Kubernetes</a>, <a href="https://vorozhko.net/tag/monitoring" rel="tag">Monitoring</a>, <a href="https://vorozhko.net/tag/sre" rel="tag">SRE</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-424 -->
+
+<article id="post-418" class="post-418 post type-post status-publish format-standard hentry category-kubernetes tag-backups tag-disaster-recovery tag-etcd-server tag-kubernetes tag-velero">
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://vorozhko.net/backup-and-restore-of-etcd-cluster" rel="bookmark">Backup and restore of Etcd cluster</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<p>Kubernetes disaster recovery plan is usually consist of backing up etcd cluster and having infrastructure as a code to provision new set of servers in the cloud. Let&#8217;s see how to do first &#8211; backup etcd in two basic and easy ways.</p>
+
+
+
+<h2>Etcd backup</h2>
+
+
+
+<p>The only stateful component of Kubernetes cluster is etcd server. The etcd server is where Kuberenetes store all API objects and configuration.<br>Backing up this storage is sufficient for complete recovery of Kubernetes cluster state.</p>
+
+
+
+<h3>Backup with etcdctl</h3>
+
+
+
+<p>etcdctl is command line tool to manage etcd server and it&#8217;s date.<br>command to make a backup is:</p>
+
+
+
+<h4>Making a backup</h4>
+
+
+
+<pre class="wp-block-code"><code>ETCDCTL_API=3 etcdctl --endpoints $ENDPOINT snapshot save snapshot.db</code></pre>
+
+
+
+<p>command to restore snapshot is:</p>
+
+
+
+<pre class="wp-block-code"><code>ETCDCTL_API=3 etcdctl snapshot restore snapshot.db</code></pre>
+
+
+
+<blockquote class="wp-block-quote"><p>Note: For https endpoints you might need to specify paths to certificate keys in order to access etcd server api with etcdctl.</p></blockquote>
+
+
+
+<h4>Store backup at remote storage</h4>
+
+
+
+<p>It&#8217;s important to backup data on remote storage like s3. It&#8217;s guarantee that a copy of etcd data will be available even if control plane volume is unaccessible or corrupted.</p>
+
+
+
+<ul><li>Make an s3 bucket.</li><li>Copy snapshot.db to s3 with new filename</li><li>Setup s3 object expiration to clean up old backup files</li></ul>
+
+
+
+<pre class="wp-block-code"><code># new s3 bucket for etcd backups
+aws s3 mb etcd-backup
+# define a backup filename based on current date and time
+filename=`date +%F-%H-%M`.db
+aws s3 cp ./snapshot.db s3://etcd-backup/etcd-data/$filename
+# set backup life cycle configuration for backup files rotation
+aws s3api put-bucket-lifecycle-configuration --bucket my-bucket --life
+cycle-configuration  file://lifecycle.json</code></pre>
+
+
+
+<p>Example of lifecycle.json which transition backups to s3 Glacier:</p>
+
+
+
+<pre class="wp-block-code"><code>{
+              "Rules": &#91;
+                  {
+                      "ID": "Move rotated backups to Glacier",
+                      "Prefix": "etcd-data/",
+                      "Status": "Enabled",
+                      "Transitions": &#91;
+                          {
+                              "Date": "2015-11-10T00:00:00.000Z",
+                              "StorageClass": "GLACIER"
+                          }
+                      ]
+                  },
+                  {
+                      "Status": "Enabled",
+                      "Prefix": "",
+                      "NoncurrentVersionTransitions": &#91;
+                          {
+                              "NoncurrentDays": 2,
+                              "StorageClass": "GLACIER"
+                          }
+                      ],
+                      "ID": "Move old versions to Glacier"
+                  }
+              ]
+          }</code></pre>
+
+
+
+<h3>Simplify etcd backup with Velero</h3>
+
+
+
+<p>Velero is powerful Kubernetes backup tool. It simplify many operation tasks.<br>As a result using Velero it&#8217;s easier to:</p>
+
+
+
+<ul><li>Choose what to backup(objects, volumes or everything)</li><li>Choose what NOT to backup(e.g. secrets)</li><li>Schedule cluster backups</li><li>Store backups on remote storage</li><li>Fast disaster recovery process</li></ul>
+
+
+
+<h4>Install and configure Velero</h4>
+
+
+
+<p>1)Download latest version at <a href="https://github.com/vmware-tanzu/velero/releases">Velero github page</a></p>
+
+
+
+<p>2)Create AWS credential file:</p>
+
+
+
+<pre class="wp-block-code"><code>&#91;default]
+aws_access_key_id=&lt;your AWS access key ID>
+aws_secret_access_key=&lt;your AWS secret access key></code></pre>
+
+
+
+<p>3)Create s3 bucket for etcd-backups</p>
+
+
+
+<pre class="wp-block-code"><code>aws s3 mb s3://kubernetes-velero-backup-bucket</code></pre>
+
+
+
+<p>4)Install velero to kubernetes cluster:</p>
+
+
+
+<pre class="wp-block-code"><code>velero install --provider aws --plugins velero/velero-plugin-for-aws:v1.0.0 --bucket kubernetes-velero-backup-bucket --secret-file ./aws-iam-creds --backup-location-config region=us-east-1 --snapshot-location-config region=us-east-1</code></pre>
+
+
+
+<blockquote class="wp-block-quote"><p>Note: we use s3 plugin to access remote storage. Velero support many different <a href="https://velero.io/plugins/">storage providers</a>. See which works for you best.</p></blockquote>
+
+
+
+<h4>Schedule automated backups</h4>
+
+
+
+<p>1)Schedule daily backups:</p>
+
+
+
+<pre class="wp-block-code"><code>velero schedule create &lt;SCHEDULE NAME> --schedule "0 7 * * *"</code></pre>
+
+
+
+<p>2)Create a backup manually:</p>
+
+
+
+<p><code>velero backup create &lt;BACKUP NAME&gt;</code></p>
+
+
+
+<h4>Disaster Recovery with Velero</h4>
+
+
+
+<blockquote class="wp-block-quote"><p>Note: You might need to re-install Velero in case of full etcd data loss.</p></blockquote>
+
+
+
+<p>When Velero is up disaster recovery process are simple and straightforward:</p>
+
+
+
+<p>1)Update your backup storage location to read-only mode</p>
+
+
+
+<pre class="wp-block-code"><code>kubectl patch backupstoragelocation &lt;STORAGE LOCATION NAME> \
+    --namespace velero \
+    --type merge \
+    --patch '{"spec":{"accessMode":"ReadOnly"}}'</code></pre>
+
+
+
+<p>By default, <code>&lt;STORAGE LOCATION NAME&gt;</code> is expected to be named <code>default</code>, however the name can be changed by specifying <code>--default-backup-storage-location</code> on velero server.</p>
+
+
+
+<p>2)Create a restore with your most recent Velero Backup:</p>
+
+
+
+<pre class="wp-block-code"><code>velero restore create --from-backup &lt;SCHEDULE NAME>-&lt;TIMESTAMP></code></pre>
+
+
+
+<p>3)When ready, revert your backup storage location to read-write mode:</p>
+
+
+
+<pre class="wp-block-code"><code>kubectl patch backupstoragelocation &lt;STORAGE LOCATION NAME> \
+   --namespace velero \
+   --type merge \
+   --patch '{"spec":{"accessMode":"ReadWrite"}}'</code></pre>
+
+
+
+<h3>Conclusions</h3>
+
+
+
+<ul><li>Kubernetes cluster with infrequent change to API server is great choice for single control plane setup.</li><li>Frequent backups of etcd cluster will minimize time window of potential data loss.</li></ul>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://vorozhko.net/backup-and-restore-of-etcd-cluster" rel="bookmark"><time class="entry-date published" datetime="2020-05-20T10:13:30+01:00">May 20, 2020</time><time class="updated" datetime="2020-10-23T08:42:01+01:00">October 23, 2020</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://vorozhko.net/category/kubernetes" rel="category tag">Kubernetes</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://vorozhko.net/tag/backups" rel="tag">Backups</a>, <a href="https://vorozhko.net/tag/disaster-recovery" rel="tag">disaster-recovery</a>, <a href="https://vorozhko.net/tag/etcd-server" rel="tag">etcd server</a>, <a href="https://vorozhko.net/tag/kubernetes" rel="tag">Kubernetes</a>, <a href="https://vorozhko.net/tag/velero" rel="tag">velero</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-418 -->
+
+<article id="post-407" class="post-407 post type-post status-publish format-standard hentry category-kubernetes tag-kubernetes tag-release-process">
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://vorozhko.net/having-fun-with-kubernetes-deployments" rel="bookmark">Having fun with Kubernetes deployment</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<h2><strong>Install deployment</strong></h2>
+
+
+
+<h3><strong>Install nginx 1.12.2 with 2 pods</strong></h3>
+
+
+
+<p>If you need to have 2 pods from the start then it could be done in three easy steps:</p>
+
+
+
+<ul><li>Create deployment template with nginx version 1.12.2</li><li>Edit nginx.yaml to update replicas count.</li><li>Apply deployment template to Kubernetes cluster</li></ul>
+
+
+
+<pre class="wp-block-code"><code># step 1
+kubectl create  deployment nginx --save-config=true --image=nginx:1.12.2 --dry-run=client -o yaml > nginx.yaml
+# step 2
+edit nginx.yaml
+# step 3
+kubectl apply --record=true -f nginx.yaml</code></pre>
+
+
+
+<p>Notice use of <code>--record=true</code> to save the state of what caused the deployment change</p>
+
+
+
+<h2>Auto-scaling deployment</h2>
+
+
+
+<p>Deployments can be scaled manually or automatically. Let&#8217;s see how it could be done in few simple commands.</p>
+
+
+
+<h3><strong>Scaling manually up to 4 pods</strong></h3>
+
+
+
+<pre class="wp-block-code"><code>kubectl scale deployment nginx --replicas=4 --record=true</code></pre>
+
+
+
+<h3><strong>Scaling manually down to 2 pods</strong></h3>
+
+
+
+<pre class="wp-block-code"><code>kubectl scale deployment nginx --replicas=2 --record=true</code></pre>
+
+
+
+<h3>Automatically scale up and down</h3>
+
+
+
+<p>Automatically scale up to 4 pods and down to 2 pods based on cpu usage</p>
+
+
+
+<pre class="wp-block-code"><code>kubectl autoscale deployment nginx --min=2 --max 4</code></pre>
+
+
+
+<p>You can adjust when to scale up/down using <code>--cpu-percent</code>(e.g. <code>--cpu-percent=80</code>) flag</p>
+
+
+
+ <a href="https://vorozhko.net/having-fun-with-kubernetes-deployments#more-407" class="more-link">Continue reading <span class="screen-reader-text">Having fun with Kubernetes deployment</span></a>	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://vorozhko.net/having-fun-with-kubernetes-deployments" rel="bookmark"><time class="entry-date published" datetime="2020-05-19T13:43:09+01:00">May 19, 2020</time><time class="updated" datetime="2020-10-23T08:42:01+01:00">October 23, 2020</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://vorozhko.net/category/kubernetes" rel="category tag">Kubernetes</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://vorozhko.net/tag/kubernetes" rel="tag">Kubernetes</a>, <a href="https://vorozhko.net/tag/release-process" rel="tag">Release process</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-407 -->
+
+<article id="post-405" class="post-405 post type-post status-publish format-standard hentry category-kubernetes tag-kubernetes">
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://vorozhko.net/how-to-check-kubernetes-cluster-health" rel="bookmark">How to check Kubernetes cluster health?</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<p>There are some essential tools to have a quick look at Kubernetes cluster health. Let&#8217;s review them here. As a result you would be able quickly tell if cluster has any obvious issues.</p>
+
+
+
+<h2>Install node problem detector</h2>
+
+
+
+<p>node-problem-detector aims to make various node problems visible to the upstream layers in cluster management stack. It is a daemon which runs on each node, detects node problems and reports them to apiserver.</p>
+
+
+
+<pre class="wp-block-code"><code>kubectl apply -f https://k8s.io/examples/debug/node-problem-detector.yaml</code></pre>
+
+
+
+<p>Use node-problem detector in conjunction with drainer daemon. So, to quickly replace unhealthy nodes. Learn more about it at <a href="https://kubernetes.io/docs/tasks/debug-application-cluster/monitor-node-health/">Monitor Node Health</a>.</p>
+
+
+
+<h2>Kubernetes cluster info</h2>
+
+
+
+<p>To see if kubectl connect to master and master is running and on which port use <code>kubectl cluster-info</code>. To debug cluster state use <code>kubectl cluster-info dump</code> as a result it will print full cluster state including pod logs to stdout, but you can setup output to a directory.  </p>
+
+
+
+<pre class="wp-block-code"><code>kubectl cluster-info
+
+Kubernetes master is running at https://10.0.0.10:6443
+KubeDNS is running at https://10.0.0.10:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Metrics-server is running at https://10.0.0.10:6443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy</code></pre>
+
+
+
+<h2>Nodes information</h2>
+
+
+
+<p>Get extended output of node information. Pay attention to STATUS, ROLES, AGE and IP columns. So, you see that ip addresses is the one which works in your network and able to communicate with each other. Also, nodes age is a kind of uptime for node, it could tell if nodes are stable enough &#8211; very useful if you use spot instances.</p>
+
+
+
+<pre class="wp-block-code"><code>kubectl get nodes -o wide
+
+NAME      STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+master    Ready    master   11h   v1.18.2   10.0.0.10     &lt;none>        Ubuntu 18.04.4 LTS   4.15.0-99-generic   docker://19.3.8
+worker1   Ready    &lt;none>   11h   v1.18.2   10.0.0.11     &lt;none>        Ubuntu 18.04.4 LTS   4.15.0-99-generic   docker://19.3.8
+worker2   Ready    &lt;none>   11h   v1.18.2   10.0.0.12     &lt;none>        Ubuntu 18.04.4 LTS   4.15.0-99-generic   docker://19.3.8</code></pre>
+
+
+
+<h2>API Component statuses</h2>
+
+
+
+<p>Status of the most important component of Kubernetes cluster apart from apiserver could be retrieved using <code>get componentstatuses</code>command. </p>
+
+
+
+<pre class="wp-block-code"><code>kubectl get componentstatuses
+NAME                 STATUS    MESSAGE             ERROR
+scheduler            Healthy   ok                  
+controller-manager   Healthy   ok                  
+etcd-0               Healthy   {"health":"true"} </code></pre>
+
+
+
+<h2>Pods statuses</h2>
+
+
+
+<p>Checking for not running pods with extended output could help you understand if there are any commonalities between failed pods like they are all at the same node or they all are belong to same availability zone. </p>
+
+
+
+<pre class="wp-block-code"><code>kubectl get pods -o wide --all-namespaces |grep -v " Running "</code></pre>
+
+
+
+<h2>Retrieve cluster events</h2>
+
+
+
+<p>Check events from all namespaces sorted by timestamp. As a result you will see how the state of the cluster have been changed for past two hours. Events are stored only for two hours to prevent apiserver from disk overload. </p>
+
+
+
+<pre class="wp-block-code"><code>kubectl get events --all-namespaces --sort-by=.metadata.creationTimestamp</code></pre>
+
+
+
+<h2>Api server health</h2>
+
+
+
+<p>You can check api server health using healthz endpoint which return HTTPS status 200 and message &#8216;ok&#8217; when it&#8217;s healthy. So, you can keep an eye on the pulse of the cluster using simple tools like pingdom or nagios.</p>
+
+
+
+<pre class="wp-block-code"><code>curl -k https://api-server-ip:6443/healthz
+ok</code></pre>
+
+
+
+<p></p>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://vorozhko.net/how-to-check-kubernetes-cluster-health" rel="bookmark"><time class="entry-date published" datetime="2020-05-18T08:30:36+01:00">May 18, 2020</time><time class="updated" datetime="2020-10-23T08:42:01+01:00">October 23, 2020</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://vorozhko.net/category/kubernetes" rel="category tag">Kubernetes</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://vorozhko.net/tag/kubernetes" rel="tag">Kubernetes</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-405 -->
+
+<article id="post-402" class="post-402 post type-post status-publish format-standard hentry category-kubernetes category-vagrant tag-kubernetes tag-vagrant">
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://vorozhko.net/multi-node-kubernetes-cluster-on-vagrant" rel="bookmark">Multi node Kubernetes cluster on Vagrant</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<p>This is fast and easy way to install Kubernetes on Vagrant with Metrics server addon.</p>
+
+
+
+<pre class="wp-block-code"><code>git clone https://github.com/vorozhko/practical-guide-to-kubernetes-administration-exam
+cd vagrant/kubernetes
+vagrant up</code></pre>
+
+
+
+<p>At this point you would have one master node and two worker nodes ready.</p>
+
+
+
+<p>Lets check cluster health</p>
+
+
+
+<pre class="wp-block-code"><code>vagrant ssh master
+
+kubectl get nodes
+NAME      STATUS   ROLES    AGE     VERSION
+master    Ready    master   2m46s   v1.18.2
+worker1   Ready    &lt;none>   35s     v1.18.2
+worker2   Ready    &lt;none>   32s     v1.18.2
+</code></pre>
+
+
+
+<p>All nodes are ready. </p>
+
+
+
+<p>Lets install Metrics server addon</p>
+
+
+
+<pre class="wp-block-code"><code>kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml</code></pre>
+
+
+
+<p>Update metrics server startup flags to solve nodes name resolution issue</p>
+
+
+
+<pre class="wp-block-code"><code>kubectl -n kube-system edit deployment metrics-server
+
+#Add following settings to metrics-server start command
+- --kubelet-preferred-address-types=InternalIP,Hostname,InternalDNS,ExternalDNS,ExternalIP
+- --kubelet-insecure-tls</code></pre>
+
+
+
+<p>At this point Metrics server is installed. </p>
+
+
+
+<p><strong>After about few minutes</strong> of collecting data you should see:</p>
+
+
+
+<pre class="wp-block-code"><code>kubectl top node
+NAME      CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+master    264m         13%    1091Mi          57%       
+worker1   109m         5%     746Mi           39%       
+worker2   109m         5%     762Mi           40% 
+
+kubectl top pod
+NAME                                       CPU(cores)   MEMORY(bytes)   
+calico-kube-controllers-75d56dfc47-bdsxr   1m           5Mi             
+calico-node-rvqwp                          20m          23Mi            
+calico-node-thtd4                          31m          25Mi            
+calico-node-vkhgs                          23m          22Mi            
+coredns-66bff467f8-x68zs                   4m           5Mi             
+coredns-66bff467f8-z7kzh                   4m           10Mi            
+etcd-master                                22m          39Mi            
+kube-apiserver-master                      52m          352Mi           
+kube-controller-manager-master             18m          55Mi            
+kube-proxy-tdwpf                           1m           18Mi            
+kube-proxy-wvsb9                           1m           8Mi             
+kube-proxy-zfd2c                           1m           9Mi             
+kube-scheduler-master                      5m           23Mi            
+metrics-server-7c557b6b9f-h4hz2            1m           11Mi</code></pre>
+
+
+
+<p></p>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://vorozhko.net/multi-node-kubernetes-cluster-on-vagrant" rel="bookmark"><time class="entry-date published" datetime="2020-05-17T20:43:50+01:00">May 17, 2020</time><time class="updated" datetime="2020-10-23T08:42:02+01:00">October 23, 2020</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://vorozhko.net/category/kubernetes" rel="category tag">Kubernetes</a>, <a href="https://vorozhko.net/category/vagrant" rel="category tag">Vagrant</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://vorozhko.net/tag/kubernetes" rel="tag">Kubernetes</a>, <a href="https://vorozhko.net/tag/vagrant" rel="tag">Vagrant</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-402 -->
+
+	<nav class="navigation pagination" role="navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Posts navigation</h2>
+		<div class="nav-links"><span aria-current="page" class="page-numbers current"><span class="meta-nav screen-reader-text">Page </span>1</span>
+<a class="page-numbers" href="https://vorozhko.net/page/2"><span class="meta-nav screen-reader-text">Page </span>2</a>
+<span class="page-numbers dots">&hellip;</span>
+<a class="page-numbers" href="https://vorozhko.net/page/6"><span class="meta-nav screen-reader-text">Page </span>6</a>
+<a class="next page-numbers" href="https://vorozhko.net/page/2">Next page</a></div>
+	</nav>
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+
+	</div><!-- .site-content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+									<a href="https://wordpress.org/" class="imprint">
+				Proudly powered by WordPress			</a>
+		</div><!-- .site-info -->
+	</footer><!-- .site-footer -->
+
+</div><!-- .site -->
+
+<script id='code-prettify-js-extra'>
+var codePrettifyLoaderBaseUrl = "https:\/\/vorozhko.net\/wp-content\/plugins\/code-prettify\/prettify";
+</script>
+<script src='https://vorozhko.net/wp-content/plugins/code-prettify/prettify/run_prettify.js?ver=1.4.0' id='code-prettify-js'></script>
+<script src='https://vorozhko.net/wp-content/themes/twentyfifteen/js/skip-link-focus-fix.js?ver=20141028' id='twentyfifteen-skip-link-focus-fix-js'></script>
+<script id='twentyfifteen-script-js-extra'>
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+</script>
+<script src='https://vorozhko.net/wp-content/themes/twentyfifteen/js/functions.js?ver=20171218' id='twentyfifteen-script-js'></script>
+<script src='https://vorozhko.net/wp-includes/js/wp-embed.min.js?ver=5.7.5' id='wp-embed-js'></script>
+
+</body>
+</html>
