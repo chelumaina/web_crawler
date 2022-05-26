@@ -19,3 +19,11 @@
  
 
  <h2>Chelule Kemboi Maina</h2>
+
+Missing Features
+1. Storing crawlers output into the database to make the contents Dynamic and editable
+ 
+Given more time, i would impliment the following
+1. Organize my directory structures as per the query Strings and store the respective contents into the spscific directory.
+2. Autoreplace the urls of each href tags with local IP address or local domain so that I have the entire hyperlinks localy working just like a complete web.
+3. Impliment DBMS storage mechanism as opposed to file Systems
